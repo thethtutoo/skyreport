@@ -4,6 +4,6 @@ class Report < ActiveRecord::Base
   validates(:description, :presence => true)
   validates(:reporter_name, :presence => true)
   def self.search(search)
-    where("name LIKE ?", "%#{search}%")
+    where("name iLIKE ?", "%#{search}%")
   end
 end

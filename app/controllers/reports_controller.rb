@@ -62,7 +62,7 @@ private
 
 def check_if_tho
  authenticate_or_request_with_http_basic("Products Realm") do |username, password|
-   username == "admin" and password == "sTr0NG_p4$swOrD"
+   username == "admin" and password == "hero504040"
  end
 end
 

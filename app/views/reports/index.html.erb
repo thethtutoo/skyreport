@@ -11,6 +11,7 @@
 <table>
   <thead>
     <tr>
+      <th>Number</th>
       <th>Name</th>
       <th>Category</th>
       <th>Description</th>
@@ -18,10 +19,11 @@
       <th>Created_at</th>
     </tr>
   </thead>
-
+  <% x = 0 %>
   <tbody>
     <% @reports.each do |report| %>
       <tr>
+        <td><%= x += 1 %></td>
         <td><%= report.name %></td>
         <td><%= report.category %></td>
         <td><%= truncate(report.description, length: 20) %></td>
