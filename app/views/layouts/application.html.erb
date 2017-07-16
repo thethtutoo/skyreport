@@ -7,8 +7,42 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <header class="row">
 
-<%= yield %>
+      <div class="col-3 logo text-center">
+      Sky Fix ( Version 1.1)
+     </div>
 
+
+      <div class="col-4 slogan">
+      </div>
+      <div class="col-2 links">
+        <%= link_to 'Report a problem', new_report_path %>
+      </div>
+
+      <div class="col-2 links">
+        <%= link_to 'About', '#' %>
+      </div>
+    </header>
+  <hr>
+    <br class="clear" />
+
+<div class="container-fluid">
+    <%= yield %>
+</div>
+
+
+<div class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-6">
+            This isn't enough, I need more
+          </div>
+          <div class="col-6">
+            Proudly hacked in Myanmar, Yangon by <a href="https://www.facebook.com/thethtut.oo">Thet Htut Oo</a><br />
+          </div>
+        </div>
+      </div>
+    </div>
 </body>
 </html>

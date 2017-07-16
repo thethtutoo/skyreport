@@ -8,7 +8,7 @@
     <%= submit_tag "Search", :name => nil %>
 <% end %>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Number</th>
@@ -17,6 +17,7 @@
       <th>Description</th>
       <th>Reporter</th>
       <th>Created_at</th>
+      <th colspan="2"></th>
     </tr>
   </thead>
   <% x = 0 %>
@@ -29,11 +30,9 @@
         <td><%= truncate(report.description, length: 20) %></td>
         <td><%= report.reporter_name %></td>
         <td><%= report.created_at.strftime("%F") %></td>
-        <td><%= link_to 'Show', report_path(report.id)%></td>
-        <td><%= link_to 'Edit', edit_report_path(report.id)%></td>
+        <td><%= link_to 'Show', report_path(report.id),  { :class=>"btn btn-success" }%>
+        <%= link_to 'Edit', edit_report_path(report.id), { :class=>"btn btn-info" }%></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<%= link_to 'New Report', new_report_path%>
