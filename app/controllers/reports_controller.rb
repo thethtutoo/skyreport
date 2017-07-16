@@ -1,6 +1,6 @@
 class ReportsController < ApplicationController
 
-  before_action :check_if_tho , :except => [:index, :show, :search, :create , :new]
+  before_action :check_if_tho , :except => [:index, :show, :search, :create , :new, :about]
   def index
     @reports = Report.all
   end
