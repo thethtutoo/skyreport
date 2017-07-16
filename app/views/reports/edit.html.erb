@@ -1,6 +1,7 @@
-<h1>Edit Report</h1>
-
+<h1>Editing Report</h1>
 <%= form_for @report do |f| %>
+
+
   <% if @report.errors.any? %>
     <div id="error_explaination">
       <h2>
@@ -14,31 +15,49 @@
       </ul>
     </div>
   <% end %>
-	<div class="field">
-		<%= f.label :Error_Title %><br>
-		<%= f.text_field :name %>
-	</div>
-	<div class="field">
-		<%= f.label :Error_Category %><br>
-    <%= f.select :category, ['Web UI', 'Web Function','Android App','Seller','Logistics','Other Issues']%>
 
-	</div>
-	<div class="field">
-		<%= f.label :description %><br>
-		<%= f.text_area :description %>
-	</div>
+  <div class="row">
+    <div class="col-md-4 form-group">
+  		<%= f.label :Error_Title %><br>
+  		<%= f.text_field :name, class: "form-control" %>
+  	</div>
+  </div>
 
-  <div class="field">
-		<%= f.label :Reported_by %><br>
-    <%= f.select :reporter_name, ['May Thu Khine', 'Win Win Htun', 'Zaw Lin Htet',
-      'Ye Htut Aung','Thandar Phoo Ngone','Thandar Oo','Aung Myint Zaw','Aye Win','Zay Yar Lin Htet']%>
-	</div>
+  <div class="row">
+  	<div class="form-group col-md-4">
+  		<%= f.label :Error_category %><br>
+      <%= f.select :category, ['Web UI', 'Web Function',
+        'Android App','Seller','Logistics','Other Issues']%>
+  	</div>
+  </div>
+
+    <div class="row">
+  	<div class="form-group col-md-4">
+  		<%= f.label :description %><br>
+  		<%= f.text_area :description , class: "form-control"%>
+  	</div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-md-4">
+  		<%= f.label :Reported_by %><br>
+      <%= f.select :reporter_name, ['May Thu Khine', 'Win Win Htun', 'Zaw Lin Htet',
+        'Ye Htut Aung','Thandar Phoo Ngone','Thandar Oo','Aung Myint Zaw','Aye Win','Zay Yar Lin Htet']%>
+  	</div>
+ </div>
+
+    <br>
+    <div class="row">
+      <div class="col-md-1">
+      	<div class="actions">
+      		<%= f.submit 'Update', class: 'btn btn-success'%>
+      	</div>
+    </div>
+     <div class="col-md-1">
+       <%= link_to 'Back', reports_path, class: 'btn btn-secondary'%>
+
+     </div>
+  </div>
 
 
-  <br>
-	<div class="actions">
-		<%= f.submit 'Update'%>
-	</div>
 <% end %>
-
-<%= link_to 'Back', reports_path%>

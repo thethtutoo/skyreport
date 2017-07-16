@@ -5,6 +5,9 @@ class ReportsController < ApplicationController
     @reports = Report.all
   end
 
+  def about
+  end
+
   def show
     @report = Report.find(params[:id])
   end
@@ -57,6 +60,7 @@ class ReportsController < ApplicationController
       render action: 'edit'
     end
   end
+
 private
 
 

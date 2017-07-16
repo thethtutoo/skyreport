@@ -7,7 +7,7 @@
 
 
 <h3>Displaying reports containing  <%= params[:search] %>.</h3>
-<table>
+<table class="table table-inverse">
   <thead>
     <tr>
       <th>Name</th>
@@ -15,6 +15,7 @@
       <th>Description</th>
       <th>Reporter</th>
       <th>Created_at</th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
@@ -26,11 +27,11 @@
         <td><%= truncate(report.description, length: 20) %></td>
         <td><%= report.reporter_name %></td>
         <td><%= report.created_at.strftime("%F") %></td>
-        <td><%= link_to 'Show', report_path(report.id)%></td>
+        <td><%= link_to 'Show', report_path(report.id), :class=>"btn btn-success"%></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 <% end %>
 
-<%= link_to "Back to Report Listing", reports_path%>
+<%= link_to "Back", reports_path, :class => "btn btn-secondary"%>

@@ -1,36 +1,38 @@
-<h1>Show Report</h1>
-
-<p>
+<h1 class="header_line">Report Details</h1>
+<br>
+<p class="report">
   <strong>Error Title: </strong>
   <%= @report.name %>
 </p>
 
-<p>
+<p class="report">
   <strong>Error Category: </strong>
   <%= @report.category %>
 </p>
 
-<p>
+<p class="report">
   <strong>Description: </strong>
   <%= @report.description %>
 </p>
 
-<p>
+<p class="report">
   <strong>Reporter: </strong>
   <%= @report.reporter_name %>
 </p>
 
-<p>
+<p class="report">
   <strong>Reported at: </strong>
   <%= @report.created_at.strftime("%F") %>
 </p>
+
+
 <p>
-  <%= link_to 'Edit this report', edit_report_path(@report )%>
+  <%= link_to 'Edit this report', edit_report_path(@report), class: "btn btn-info"%>
 </p>
 <p>
-  <%= link_to('Delete Report', @report,
-      { :data => { :confirm => 'Are you sure?'}, :method => :delete }) %>
+  <%= link_to 'Delete Report', report_path(@report), :class => "btn btn-danger",
+      :data => { :confirm => 'Are you sure?'}, :method => :delete  %>
 </p>
 <p>
-<%= link_to 'Back to List of Reports', reports_path %>
+<%= link_to 'Back', reports_path, :class => "btn btn-secondary" %>
 </p>
