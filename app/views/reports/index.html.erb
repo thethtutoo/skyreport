@@ -1,0 +1,31 @@
+<p id="notice">
+  <%= flash[:notice] %>
+</p>
+
+<h1>Listing Reports</h1>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Category</th>
+      <th>Description</th>
+      <th>Reporter</th>
+      <th>Created_at</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reports.each do |report| %>
+      <tr>
+        <td><%= report.name %></td>
+        <td><%= report.category %></td>
+        <td><%= truncate(report.description, length: 20) %></td>
+        <td><%= report.reporter_name %></td>
+        <td><%= report.created_at.strftime("%F") %></td>
+        <td><%= link_to 'Show', report_path(report.id)%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
