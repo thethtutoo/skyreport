@@ -1,13 +1,12 @@
 <p id="notice">
   <%= flash[:notice] %>
 </p>
+<% if @reports.blank? %>
+  <h4>There are no reports containing  <%= params[:search] %>.</h4>
+<% else %>
 
-<h1>Listing Reports</h1>
-<%= form_tag(search_reports_path, :method => "get", id: "search-form") do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Search by Error Name" %>
-    <%= submit_tag "Search", :name => nil %>
-<% end %>
 
+<h3>Displaying reports containing  <%= params[:search] %>.</h3>
 <table>
   <thead>
     <tr>
@@ -28,10 +27,10 @@
         <td><%= report.reporter_name %></td>
         <td><%= report.created_at.strftime("%F") %></td>
         <td><%= link_to 'Show', report_path(report.id)%></td>
-        <td><%= link_to 'Edit', edit_report_path(report.id)%></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+<% end %>
 
-<%= link_to 'New Report', new_report_path%>
+<%= link_to "Back to Report Listing", reports_path%>

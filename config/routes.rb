@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
 
   get 'reports' => 'reports#index', :as => 'reports'
+  get 'reports/new' => 'reports#new' , :as => 'new_report'
+  post 'reports' => 'reports#create'
+  get 'reports/search' => 'reports#search', :as => 'search_reports'
   get 'reports/:id' => 'reports#show', :as => 'report'
   delete 'reports/:id' => 'reports#destroy'
+  patch 'reports/:id' => 'reports#update'
+  put 'reports/:id' => 'reports#update'
+  get 'reports/:id/edit' => 'reports#edit', :as => 'edit_report'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

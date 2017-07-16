@@ -1,12 +1,12 @@
 <h1>Show Report</h1>
 
 <p>
-  <strong>Name: </strong>
+  <strong>Error Title: </strong>
   <%= @report.name %>
 </p>
 
 <p>
-  <strong>Category: </strong>
+  <strong>Error Category: </strong>
   <%= @report.category %>
 </p>
 
@@ -25,8 +25,12 @@
   <%= @report.created_at.strftime("%F") %>
 </p>
 <p>
-  <%= link_to('Delete Report', @report,  
+  <%= link_to 'Edit this report', edit_report_path(@report )%>
+</p>
+<p>
+  <%= link_to('Delete Report', @report,
       { :data => { :confirm => 'Are you sure?'}, :method => :delete }) %>
-
+</p>
+<p>
 <%= link_to 'Back to List of Reports', reports_path %>
 </p>
